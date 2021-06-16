@@ -1,0 +1,1 @@
+function getdat(){ddate=document.getElementById("datepicker").value;var pdate=ddate.split("-");var qdate=pdate[2]+"_"+pdate[1]+"_"+pdate[0];mdate=pdate[2]+"-"+pdate[1];$.ajax({type:'POST',url:"config.php",async:false,data:{q:qdate},success:function(response){res=response;reslen=res.length;},});rtable();}
