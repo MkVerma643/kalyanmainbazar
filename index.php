@@ -192,7 +192,20 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                        $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        
+                                       $count = 0;
+                                       $totalrows = mysqli_num_rows($qry);
+                                       $rowCount = 0;
+                                       $couple = [];
                                        while ($row=mysqli_fetch_array($qry)) {
+                                          $rowCount++;
+                                          array_push($couple, $row);
+                                          $count++;
+                                          if ($rowCount != $totalrows) {
+                                             if ($count != 2){
+                                                continue;
+                                             }
+                                          }
+                                          
 
                                           $g_time = strtotime("+24 seconds", strtotime($today_date." ".$row['g_time']));
                                           $g_show_time=date('Y-m-d H:i:s', $g_time);
@@ -201,6 +214,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                           if( date('Y-m-d H:i:s')>$g_show_time   ){
 
                                           ?>
+
 
                                        <div class="card" style="background: #f4f5f8;">
                                           <table width="90%" class="table">
@@ -212,26 +226,39 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
 
                                                 <tr align="center">
                                                    <td>
-                                                   <?php $winning_kalyan_pana = $row['winning_kalyan_pana'];
+                                                   <?php
+                                                   
+                                                   $winning_kalyan_pana1 = $couple[0]['winning_kalyan_pana'];
+                                                   $winning_kalyan_pana2 = $couple[1]['winning_kalyan_pana'];
                                                    // foreach ($winning_kalyan_pana as $winning_kalyan_pana_result ) {
                                                    echo "<td><b style='font-size:26px;'>" . 'New Kalyan ' . '<br><h3  class="label label-info" >' 
-                                                   . $winning_kalyan_pana . '</h3><br>'  . '<span style="margin-left : 10px" class="label label-primary" >' 
-                                                   . "Time- " . $row['game_time'] . '</span>'   .  " <br></b></td>";
+                                                   . $winning_kalyan_pana1 . '</h3><h3  class="label label-info" >' 
+                                                   . $winning_kalyan_pana2 . '</h3><br>'  . '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . "Time- " . $couple[0]['game_time'] . '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . "Time- " . $couple[1]['game_time'] .'</span>'   .  " <br></b></td>";
                                                    // }
                                                    ?>
                                                    </td>
 
                                                    <td>
-                                                   <?php $winning_bazar_pana = $row['winning_bazar_pana'];
+                                                   <?php
+                                                   $winning_bazar_pana1 = $couple[0]['winning_bazar_pana'];
+                                                   $winning_bazar_pana2 = $couple[1]['winning_bazar_pana'];
+                                                   
                                                    // foreach ($winning_bazar_pana as $winning_bazar_pana_result ) {
                                                    echo "<td><b style='font-size:26px;'>" . " New Main Bazar " . '<br><h3  class="label label-info" >' 
-                                                   . $winning_bazar_pana . '</h3><br>' .  '<span style="margin-left : 10px" class="label label-primary" >' 
-                                                   . "Time- " . $row['game_time'] . '</span>'   .  " <br></b></td>";
+                                                   . $winning_bazar_pana1 . '</h3><h3  class="label label-info" >' 
+                                                   . $winning_bazar_pana2 . '</h3><br>' .  '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . "Time- " . $couple[0]['game_time'] . '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . "Time- " . $couple[1]['game_time'] .'</span>'   .  " <br></b></td>";
                                                    // }
                                                    ?>
                                                    </td>
                                                 </tr>
-
+                                                <?php
+                                                   $couple = [];
+                                                   $count = 0;
+                                                ?>
                                              </tbody>
                                           </table>
                                        </div>
@@ -307,3 +334,4 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       // document.getElementById("current_time").innerHTML=current_time;
    }
 </script>
+

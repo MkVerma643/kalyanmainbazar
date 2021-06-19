@@ -1,14 +1,14 @@
 <?php 
  //error_reporting(0);
  
-$servername = "localhost";
+$server_name = "localhost";
 $username = "root";
 $password = "";
 $database = "nmrc_game";
 
 
 // Create connection
-$con = mysqli_connect($servername, $username, $password, $database);
+$con = mysqli_connect($server_name, $username, $password, $database);
 $con->query("SET SESSION sql_mode=''");
 
 // Check connection
