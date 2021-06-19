@@ -58,7 +58,7 @@ if (mysqli_num_rows($select) > 0) {
        ('$game_time','"
             . $winning_kalyan_pana . "','"
             . $winning_bazar_pana . "','"
-            . date('Y-d-m') . "','"
+            . date('Y-m-d') . "','"
             . date('h:i A') . "',
            'Auto','"
             . date('H:i:s') . "')");
