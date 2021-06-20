@@ -45,7 +45,7 @@ $admin_id = $_SESSION['id']; ?>
                      if ($insert_result == true) {
                         echo '<script> alert("Result Added successfully !!"); </script>';
                      } else {
-                        echo '<script> alert("Somthing Went Wrong !!"); </script>';
+                        echo '<script> alert("Something Went Wrong !!"); </script>';
                      }
                   } else {
                      echo '<script> alert("Result Already Declared"); </script>';
@@ -63,7 +63,7 @@ $admin_id = $_SESSION['id']; ?>
                   if ($insert_result == true) {
                      echo '<script> alert("Result Added successfully !!"); </script>';
                   } else {
-                     echo '<script> alert("Somthing Went Wrong !!"); </script>';
+                     echo '<script> alert("Something Went Wrong !!"); </script>';
                   }
                } else {
                   echo '<script> alert("Result Already Declared"); </script>';
