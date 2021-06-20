@@ -1,6 +1,0 @@
-[06-Aug-2020 07:46:54 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 2
-[06-Aug-2020 07:46:54 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 2
-[06-Aug-2020 07:46:54 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 2
-[06-Aug-2020 13:16:54 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 8
-[06-Aug-2020 13:16:54 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 10
-[06-Aug-2020 08:02:46 UTC] PHP Parse error:  syntax error, unexpected '$select' (T_VARIABLE) in /home/luckydnu/public_html/luckyfour/cronjob/declare_result.php on line 9

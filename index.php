@@ -221,7 +221,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                              <tbody>
 
                                                 <tr>
-                                                   <td colspan="10" align="center"><b style="font-size:18px;"> Draw Date:  <?php echo $row['win_date'];                                                                                                               ?></b></td>
+                                                   <td colspan="10" align="center"><b style="font-size:18px;"> Draw Date:  <?php echo date('d-m-Y', strtotime($row['win_date']));                                                                                                               ?></b></td>
                                                 </tr>
 
                                                 <tr align="center">
@@ -230,10 +230,14 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    
                                                    $winning_kalyan_pana1 = $couple[0]['winning_kalyan_pana'];
                                                    $winning_kalyan_pana2 = $couple[1]['winning_kalyan_pana'];
+
+                                                   $rev_string=explode('-', $winning_kalyan_pana2);
+                                                   $rev_winning_kalyan_pana2=$rev_string[1]."-".$rev_string[0];
+
                                                    // foreach ($winning_kalyan_pana as $winning_kalyan_pana_result ) {
                                                    echo "<td><b style='font-size:26px;'>" . 'New Kalyan ' . '<br><h3  class="label label-info" >' 
                                                    . $winning_kalyan_pana1 //. '</h3><h3  class="label label-info" >' 
-                                                   . strrev($winning_kalyan_pana2) . '</h3><br>'  . '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . $rev_winning_kalyan_pana2 . '</h3><br>'  . '<span style="margin-left : 10px" class="label label-primary" >' 
                                                    . "" . $couple[0]['game_time'] . ''. "-" 
                                                    . "" . $couple[1]['game_time'] .'</span>'   .  " <br></b></td>";
                                                    // }
@@ -245,10 +249,13 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $winning_bazar_pana1 = $couple[0]['winning_bazar_pana'];
                                                    $winning_bazar_pana2 = $couple[1]['winning_bazar_pana'];
                                                    
+                                                   $rev_string=explode('-', $winning_bazar_pana2);
+                                                   $rev_winning_bazar_pana2=$rev_string[1]."-".$rev_string[0];
+
                                                    // foreach ($winning_bazar_pana as $winning_bazar_pana_result ) {
                                                    echo "<td><b style='font-size:26px;'>" . " New Main Bazar " . '<br><h3  class="label label-info" >' 
                                                    . $winning_bazar_pana1 //. '</h3><h3  class="label label-info" >' 
-                                                   . strrev($winning_bazar_pana2) . '</h3><br>' .  '<span style="margin-left : 10px" class="label label-primary" >' 
+                                                   . $rev_winning_bazar_pana2 . '</h3><br>' .  '<span style="margin-left : 10px" class="label label-primary" >' 
                                                    . "" . $couple[0]['game_time'] . ''."-"
                                                    . "" . $couple[1]['game_time'] .'</span>'   .  " <br></b></td>";
                                                    // }
