@@ -423,3 +423,13 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
    }
 </script>
 
+
+
+http://luckyfourresult.com/103050/ResultChart/index.php
+http://localhost/kalyanmainbazar/index.php?report_date=2021-06-20&game_selected=&view_result=Show
+https://goldd.in/otc
+http://localhost/kalyanmainbazar/ajs/game_setting.php
+http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nmrc_game&table=win_card&pos=0
+http://localhost/kalyanmainbazar/declareresult.php
+https://luckyfourresult.com:2083/cpsess1550028715/frontend/paper_lantern/index.html?login=1&post_login=53537725787312
+https://manage.bigrock.in/servlet/ViewDomainServlet?orderid=92783721&referrerkey=bUhVVkpzREYwRHgydDdCR3dOMlRPYWJFcVUyRG56VHdRU25ULzZRNmhGWFRBWHI3NUtkVnIrYzl2Q09ER1dPMg==#
