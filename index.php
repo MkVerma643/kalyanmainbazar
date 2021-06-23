@@ -433,3 +433,4 @@ http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nmrc_game&table=win
 http://localhost/kalyanmainbazar/declareresult.php
 https://luckyfourresult.com:2083/cpsess1550028715/frontend/paper_lantern/index.html?login=1&post_login=53537725787312
 https://manage.bigrock.in/servlet/ViewDomainServlet?orderid=92783721&referrerkey=bUhVVkpzREYwRHgydDdCR3dOMlRPYWJFcVUyRG56VHdRU25ULzZRNmhGWFRBWHI3NUtkVnIrYzl2Q09ER1dPMg==#
+
