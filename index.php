@@ -100,6 +100,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       body, td {
          font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
          }
+         
 
       #subTitle {
          background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
@@ -140,7 +141,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       .imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
       .imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
 
-      hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
+      /* hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; } */
 
       h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
       h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
@@ -156,6 +157,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       .tblHeaderColor, .tblHeaderColor td { background: #99c; }
       .tblNoBorder td   { border: 0; }
 
+      .hr { background-color:#050; color: black; height: 1px; border: 0; width:96%}
    </style>
 
 </head>
@@ -179,9 +181,9 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                               <td align="center">
                                  <div class="row" style="background-color:#fcf8e3; height:100%;">
                                     <div class="col-lg-12" style="padding:5px 0;">
-                                       <div class="col-lg-3">
-                                          <h4><img src="https://goldd.in//assets/images/goldd_icon.png" height="30px">
-                                          <b style="font-size: 28px; color: black;">Kalyan Main Bazar</b></h4>
+                                       <div class="col-lg-5">
+                                          <h4><img src="logo.png" height="30px">
+                                          <b style="font-size: 28px; color: black;margin: 0px 0px 0px;">Kalyan Main Bazar Official Page</b></h4>
                                        </div>
                                       
                                     </div>
@@ -192,15 +194,15 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                               <td align="center" valign="top" style="padding:10px">
 
                               <div class="col-lg-1" style="padding:10px" >
-                              <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px">
+                              <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
                                  Home</button>
                               </div>
                               <div class="col-lg-1" style="padding:10px" >
-                              <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px">
+                              <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
                                  Refresh</button>
                               </div>
                               
-                                 <div class="col-lg-4">
+                                 <div class="col-lg-5"  style="">
                                     <table align="center">
                                        <tbody>
                                           <form method="GET">
@@ -210,8 +212,9 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                       <tbody>
 
                                                          <tr >
-                                                         <div style="border-radius:25px;padding:0px">
-                                                            <td align="left" bgcolor="" style="padding: 7px; ">
+                                                            
+                                                         <div style="border-radius:25px;padding:2px">
+                                                            <td align="left" bgcolor="" style="padding:5px; ">
                                                                <input type="date" name="report_date" min="<?php echo date('Y-m-d', strtotime('-15 day', strtotime($today_date))); ?>" value="<?php if (!empty($_GET['report_date'])) {                                                                                                                              } ?>" style="height: 35px;min-width:180px;border-radius: 20px;" class="form-control form-control-rounded"=>
                                                             </td>
                                                             <td bgcolor="#fff"><span style="margin: 0px;display: none;"></span></td>
@@ -229,7 +232,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                                </select>
                                                             </td>
                                                             <td bgcolor="" style="padding: 7px;">
-                                                            <input type="submit" name="view_result" value="Show" class="btn btn-primary" style="background-color:#008cff; border-radius:25px">
+                                                            <input type="submit" name="view_result" value="Submit" class="btn btn-primary" style="background-color:#fec007; border-radius:25px; color:black">
                                                             </td>
                                                             </div>
                                                          </tr>
@@ -241,12 +244,14 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                        </tbody>
                                     </table>
                                  </div>
+                                 
                                     
-                                 <div class="col-lg-3" style="padding:5px">
-                                    <h6><b class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:16px;color: black;border-radius:25px">Next Draw Time: <span class="navtext" id="current_game"></span></b></h6>
+                                  
+                                 <div class="col-lg-3" style="padding:12px">
+                                    <button class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:225px">Next Draw On: <span class="navtext" id="current_game"></span></button></h6>
                                  </div>
-                                 <div class="col-lg-3" style="padding:5px">
-                                    <h6><b class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:16px;color: black;border-radius:25px">Time To Draw: <span class="navtext" id="timer"> </span></b> </h6>
+                                 <div class="col-lg-2" style="padding:12px">
+                                    <button class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px">Time To Draw: <span class="navtext" id="timer"> </span></button>
                                  </div>
 
                               </td>
@@ -264,11 +269,11 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        ?>
-                                       <b class="label label-danger btn-block mt-3" style="font-size:18px;border-radius:25px;width:50%"> 
-                                       Draw Date:  <?php echo date('d-m-Y', strtotime(mysqli_fetch_array($qry)['win_date'])); ?></b>
+                                       <button class="label label-danger btn-block mt-3" style="font-size:18px;border-radius:25px;width:50%"> 
+                                       Draw Date:  <?php echo date('d-m-Y', strtotime(mysqli_fetch_array($qry)['win_date'])); ?></button>
                                        <br>
                                        <p><br></p>
-                                       <hr>
+                                       <hr class="hr">
                                        <?php
 
                                        $count = 0;
@@ -313,11 +318,11 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_kalyan_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_kalyan_pana as $winning_kalyan_pana_result ) {
-                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:25px;width:275px;color:black'>" . 'New Kalyan ' . 
-                                                   "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:25px;width:200px;color:black'><b>" 
+                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107'>" . 'NEW KALYAN ' . 
+                                                   "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_kalyan_pana1 //. '</h3><p  class="label label-info" >' 
-                                                   . $rev_winning_kalyan_pana2 . '</b></p><br><br>'  . '<span style="margin-left:10px;font-size:18px;border-radius:25px;width:325px;color:black" class="btn btn-warning mt-3" >' 
-                                                   . "<b>" . $couple[0]['game_time'] . ''. "-" 
+                                                   . $rev_winning_kalyan_pana2 . '</b></p><br><br>'  . '<span style="margin-left:10px;font-size:18px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
+                                                   . "<b>" . $couple[0]['game_time'] . ''. "&nbsp;-&nbsp;" 
                                                    . "" . $couple[1]['game_time'] .'</b></span>'   .  " <br></b></p></td>";
                                                    // }
                                                    ?>
@@ -332,11 +337,11 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_bazar_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_bazar_pana as $winning_bazar_pana_result ) {
-                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:25px;width:275px;color:black'>" . " New Main Bazar " . 
-                                                   "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:25px;width:200px;color:black'><b>" 
+                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107''>" . " NEW MAIN BAZAR " . 
+                                                   "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_bazar_pana1 //. '</h3><p  class="label label-info" >' 
-                                                   . $rev_winning_bazar_pana2 . '</b></p><br><br>' .  '<span style="margin-left:10px;font-size:20px;border-radius:25px;width:325px;color:black" class="btn btn-warning mt-3" >' 
-                                                   . "<b>" . $couple[0]['game_time'] . ''."-"
+                                                   . $rev_winning_bazar_pana2 . '</b></p><br><br>' .  '<span style="margin-left:10px;font-size:20px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
+                                                   . "<b>" . $couple[0]['game_time'] . ''."&nbsp;-&nbsp;"
                                                    . "" . $couple[1]['game_time'] .'</b></span>'   .  " <br></p></td>";
                                                    // }
                                                    ?>
@@ -345,20 +350,22 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                 <?php
                                                    $couple = [];
                                                    $count = 0;
-                                                ?>
-                                                <hr>
+                                                   ?>
+                                               
                                              </tbody>
                                           </table>
+                                          <hr class="hr">
                                        </div>
                                  <?php
                                     }
                                  }
                                  ?>
+                                  
                                  <br>
                               </td>
                            </tr>
                            <tr>
-                              <td width="980" height="50" align="center" valign="middle" bgcolor="#eeeb9a" class="txt-2">
+                              <td width="980" height="50" align="center" valign="middle" bgcolor="#eeeeee" class="txt-2">
 
                                  <span style="color: #000000">
                                     <marquee width="100%" direction="left" height="20px">
@@ -422,15 +429,3 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       // document.getElementById("current_time").innerHTML=current_time;
    }
 </script>
-
-
-
-http://luckyfourresult.com/103050/ResultChart/index.php
-http://localhost/kalyanmainbazar/index.php?report_date=2021-06-20&game_selected=&view_result=Show
-https://goldd.in/otc
-http://localhost/kalyanmainbazar/ajs/game_setting.php
-http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nmrc_game&table=win_card&pos=0
-http://localhost/kalyanmainbazar/declareresult.php
-https://luckyfourresult.com:2083/cpsess1550028715/frontend/paper_lantern/index.html?login=1&post_login=53537725787312
-https://manage.bigrock.in/servlet/ViewDomainServlet?orderid=92783721&referrerkey=bUhVVkpzREYwRHgydDdCR3dOMlRPYWJFcVUyRG56VHdRU25ULzZRNmhGWFRBWHI3NUtkVnIrYzl2Q09ER1dPMg==#
-
