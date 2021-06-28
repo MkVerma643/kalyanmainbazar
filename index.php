@@ -215,7 +215,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                             
                                                          <div style="border-radius:25px;padding:2px">
                                                             <td align="left" bgcolor="" style="padding:5px; ">
-                                                               <input type="date" name="report_date" min="<?php echo date('Y-m-d', strtotime('-15 day', strtotime($today_date))); ?>" value="<?php if (!empty($_GET['report_date'])) {                                                                                                                              } ?>" style="height: 35px;min-width:180px;border-radius: 20px;" class="form-control form-control-rounded"=>
+                                                               <input type="date" name="report_date" min="<?php echo date('Y-m-d', strtotime('-15 day', strtotime($today_date))); ?>" value="<?php if (!empty($_GET['report_date'])) { } ?>" style="height: 35px;min-width:180px;border-radius: 20px;" class="form-control form-control-rounded"=>
                                                             </td>
                                                             <td bgcolor="#fff"><span style="margin: 0px;display: none;"></span></td>
                                                             <td bgcolor="">
@@ -232,7 +232,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                                </select>
                                                             </td>
                                                             <td bgcolor="" style="padding: 7px;">
-                                                            <input type="submit" name="view_result" value="Submit" class="btn btn-primary" style="background-color:#fec007; border-radius:25px; color:black">
+                                                            <input type="submit" name="view_result" value="Submit" class="btn btn-warning" style="background-color:#fec007; border-radius:25px; color:black;border-color: none;">
                                                             </td>
                                                             </div>
                                                          </tr>
@@ -248,10 +248,10 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                     
                                   
                                  <div class="col-lg-3" style="padding:12px">
-                                    <button class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:225px">Next Draw On: <span class="navtext" id="current_game"></span></button></h6>
+                                    <button class="btn btn-warning btn-block mt-3" id="refresh" style="font-size: 18px;line-height:18px;border-radius:25px ;color: black;background-color:#fec007;min-width:225px;border-color: none;font-family:inherit;">Next Draw On: <span  id="current_game"></span></button>
                                  </div>
                                  <div class="col-lg-2" style="padding:12px">
-                                    <button class="label label-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px">Time To Draw: <span class="navtext" id="timer"> </span></button>
+                                    <button class="btn btn-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px;border-color: none;">Time To Draw: <span  id="timer"> </span></button>
                                  </div>
 
                               </td>
@@ -269,7 +269,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        ?>
-                                       <button class="label label-danger btn-block mt-3" style="font-size:18px;border-radius:25px;width:50%"> 
+                                       <button class="btn btn-danger btn-block mt-1" style="font-size:18px;border-radius:25px;width:75%; border-color: none;"> 
                                        Draw Date:  <?php echo date('d-m-Y', strtotime(mysqli_fetch_array($qry)['win_date'])); ?></button>
                                        <br>
                                        <p><br></p>

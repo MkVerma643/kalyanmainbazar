@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     VALUES ('$game_time','" . $setted_kalyan_pana . "-" . $kalyan_select . "','" . $setted_bazar_pana . "-" . $bazar_select . "','" . $added_date . "','" . date('H:i:s') . "')");
 
     if ($insert_result  === TRUE) {
-        $data = "Result Setted successfully";
+        $data = "Result Setted Successfully";
         echo  json_encode(
             array("message" => $data, "success" => true)
         );
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 else{
-    $data = "Result Already Setted";
+    $data = "Result Already Setted.";
         echo  json_encode(
             array("message" => $data, "success" => true)
         );

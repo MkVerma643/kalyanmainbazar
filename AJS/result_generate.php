@@ -102,7 +102,7 @@ $admin_id = $_SESSION['id']; ?>
 
                               $no = 0;
 
-                              $gt = mysqli_query($con, "SELECT * From `game_time` ");
+                              $gt = mysqli_query($con, "SELECT * From `game_time` where `g_time`< '$c_time'");
 
                               while ($row = mysqli_fetch_array($gt)) {
 
