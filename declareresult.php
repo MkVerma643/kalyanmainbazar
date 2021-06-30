@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include("./AJS/includes/db.php");
 date_default_timezone_set("Asia/Kolkata");
 // $game_date = date('Y-m-d');
 // $game_time = "01:15 PM";

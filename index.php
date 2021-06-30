@@ -263,25 +263,29 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                        if(!empty($_GET['game_selected']))
                                        {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  order by `g_time` ASC ");
+                                          $gt=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        else
                                        {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
+                                          $gt=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        ?>
                                        <button class="btn btn-danger btn-block mt-1" style="font-size:18px;border-radius:25px;width:75%; border-color: none;"> 
-                                       Draw Date:  <?php echo date('d-m-Y', strtotime(mysqli_fetch_array($qry)['win_date'])); ?></button>
+                                       Draw Date:  <?php  echo date('d-m-Y', strtotime(mysqli_fetch_array($gt)['win_date'])); ?></button>
                                        <br>
                                        <p><br></p>
                                        <hr class="hr">
                                        <?php
-
+                                       
                                        $count = 0;
-                                       $totalrows = mysqli_num_rows($qry)-1;
+                                       $totalrows = mysqli_num_rows($qry);
                                        $rowCount = 0;
                                        $couple = [];
                                        while ($row=mysqli_fetch_array($qry)) {
                                           $rowCount++;
+                                          //print_r($rowCount);
+                                          //print_r($totalrows);
                                           array_push($couple, $row);
                                           $count++;
                                           if ($rowCount != $totalrows) {

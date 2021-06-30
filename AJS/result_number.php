@@ -164,7 +164,7 @@ $admin_id = $_SESSION['id']; ?>
       });
    });
 
-   $(document).ready(function() {
+   //$(document).ready(function() {
 
 
 
@@ -182,7 +182,7 @@ $admin_id = $_SESSION['id']; ?>
       //    });
       // }
 
-   });
+   //});
 
    // $(document).on('change', '#game_selected', function() {
    //    $('#divdata').empty();

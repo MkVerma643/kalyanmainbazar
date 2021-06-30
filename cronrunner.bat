@@ -1,1 +1,1 @@
-"C:\xampp\php\php.exe"-f"C:\xampp\htdocs\Z-NMRC\declareresult.php"
+"C:\xampp\php\php.exe" -f "C:\xampp\htdocs\kalyanmainbazar\declareresult.php"
