@@ -1,25 +1,24 @@
 <?php
-include("./AJS/includes/db.php");
+include('./AJS/includes/db.php');
+
 date_default_timezone_set("Asia/Kolkata");
-// $game_date = date('Y-m-d');
-// $game_time = "01:15 PM";
 $game_time = date('h:i A');
 $game_date = date("Y-m-d");
-//
-//$in=mysqli_query($con,"INSERT INTO `test`(`test`, `create_at`) VALUES ('2','".date('h:i A')."')");
 
 $select = mysqli_query($con, "SELECT `game_time` FROM `game_time` WHERE `game_time`='" . $game_time . "'");
 
 if (mysqli_num_rows($select) > 0) {
    $check_win = mysqli_query($con, "SELECT `id` FROM `win_card` WHERE `game_time`='" . $game_time . "' and `win_date`='" . $game_date . "' ");
+
    if (mysqli_num_rows($check_win) < 1) {
       $rand_number = [];
-
 
       $check_num = mysqli_query($con, "SELECT * FROM 
       `result_number_setting` WHERE 
       `game_time`='" . $game_time . "' and 
       `added_date`='" . $game_date . "'");
+
+
       if (mysqli_num_rows($check_num) > 0) {
          $row = mysqli_fetch_assoc($check_num);
          $insert_result = mysqli_query($con, "INSERT INTO `win_card`(
@@ -38,13 +37,15 @@ if (mysqli_num_rows($select) > 0) {
             . date('h:i A') . "',
          'Auto','"
             . date('H:i:s') . "')");
-      } else {
+            
+         } 
+      else{
 
          $random_0_to_9 = rand(0, 9);
          $random_0_to_91 = rand(0, 9);
 
-         $winning_kalyan_pana = fetechPanaRandomly($random_0_to_9, $con);
-         $winning_bazar_pana = fetechPanaRandomly($random_0_to_91, $con);
+         $winning_kalyan_pana = fetchPanaRandomly($random_0_to_9, $con);
+         $winning_bazar_pana = fetchPanaRandomly($random_0_to_91, $con);
 
          $insert_result = mysqli_query($con, "INSERT INTO `win_card`(
          `game_time`, 
@@ -63,10 +64,13 @@ if (mysqli_num_rows($select) > 0) {
            'Auto','"
             . date('H:i:s') . "')");
       }
+
    }
+
 }
 
-function fetechPanaRandomly($id, $con)
+
+function fetchPanaRandomly($id, $con)
 {
    $ran = array("single_pana", "double_pana", "triple_pana");
    $k = array_rand($ran);
