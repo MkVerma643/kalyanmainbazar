@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 else{
+    
     $data = "Result Already Setted.";
         echo  json_encode(
             array("message" => $data, "success" => true)

@@ -18,7 +18,7 @@ $start_t = date('h:i:s', $st);
 $end_time = mysqli_query($con, "SELECT `g_time` FROM `game_time` ORDER BY `game_time_id` DESC LIMIT 1");
 $end_time_row = mysqli_fetch_array($end_time);
 // $row=null;
- $current_game = $row['game_time'];
+ //$current_game = $row['game_time'];
 
 if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
    $gt = mysqli_query($con, "SELECT `game_time` From `game_time` where `g_time`> '$current_time' limit 1");

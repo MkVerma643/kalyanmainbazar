@@ -1,5 +1,6 @@
 <?php 
  //error_reporting(0);
+ error_reporting( ~E_NOTICE);
  
 $servername = "localhost";
 $username = "root";
