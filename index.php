@@ -193,33 +193,40 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                            <tr>
                               <td align="center" valign="top" style="padding:10px">
 
-                              <div class="col-lg-1" style="padding:10px" >
+                              <div class="col-lg-1" style="padding:10px;font-family:Arial" >
                               <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
                                  Home</button>
                               </div>
-                              <div class="col-lg-1" style="padding:10px" >
+                              <div class="col-lg-1" style="padding:10px;font-family:Arial" >
                               <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
                                  Refresh</button>
                               </div>
                               
                                  <div class="col-lg-5"  style="">
-                                    <table align="center">
+                                    <table >
                                        <tbody>
                                           <form method="GET">
                                              <tr>
                                                 <td>
-                                                   <table border="0" align="left" cellpadding="5" cellspacing="0">
+                                                   <table cellpadding="5" cellspacing="0">
                                                       <tbody>
 
                                                          <tr >
                                                             
                                                          <div style="border-radius:25px;padding:2px">
-                                                            <td align="left" bgcolor="" style="padding:5px; ">
-                                                               <input type="date" name="report_date" min="<?php echo date('Y-m-d', strtotime('-15 day', strtotime($today_date))); ?>" value="<?php if (!empty($_GET['report_date'])) { } ?>" style="height: 35px;min-width:180px;border-radius: 20px;" class="form-control form-control-rounded"=>
+                                                            <td  style="padding:5px; " >
+
+                                                            <!-- <input type="date" name="report_date" min="<?php echo date('Y-m-d', strtotime('-15 day', strtotime($today_date)));?>" 
+                                                            value="<?php  if(!empty($_GET['report_date'])) {echo $_GET['report_date'];}else{echo $today_date;} ?>" 
+                                                            style="height: 35px;min-width:180px;border-radius: 20px;" class="form-control form-control-rounded" => -->
+
+                                                            <input type="date"  name="report_date"  
+                                                            value="<?php  if(!empty($_GET['report_date'])) {echo $_GET['report_date'];}else{echo $today_date;} ?>" 
+                                                            style="height: 35px;min-width:360px;border-radius:20px" class="form-control form-control-rounded" = >
+
                                                             </td>
-                                                            <td bgcolor="#fff"><span style="margin: 0px;display: none;"></span></td>
-                                                            <td bgcolor="">
-                                                               <select id='game_selected' name="game_selected" class="form-control form-control-rounded" style="height: 35px;border-radius: 20px;min-width:180px;">
+                                                            <!-- <td bgcolor="">
+                                                               <!-- <select id='game_selected' name="game_selected" class="form-control form-control-rounded" style="height: 35px;border-radius: 20px;min-width:180px;">
                                                                   <option value="">Draw Time</option>
                                                                   <?php 
                                                                      $gt=mysqli_query($con,"SELECT * From `game_time` ");
@@ -229,10 +236,10 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                                       ?>
                                                                   <option value='<?php echo $row['game_time'] ?>' <?php if($row['game_time']==$_GET['game_selected']){echo "selected";} ?> ><?php echo $row['game_time'] ?></option>
                                                                   <?php } ?>
-                                                               </select>
-                                                            </td>
+                                                               </select> -->
+                                                            <!-- </td> -->
                                                             <td bgcolor="" style="padding: 7px;">
-                                                            <input type="submit" name="view_result" value="Submit" class="btn btn-warning" style="background-color:#fec007; border-radius:25px; color:black;border-color: none;">
+                                                            <input type="submit" name="view_result" value="Submit" class="btn btn-warning" style="background-color:#fec007; min-width:100px;border-radius:25px; color:black;border-color: none;font-family:Arial">
                                                             </td>
                                                             </div>
                                                          </tr>
@@ -248,10 +255,10 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                     
                                   
                                  <div class="col-lg-3" style="padding:12px">
-                                    <button class="btn btn-warning btn-block mt-3" id="refresh" style="font-size: 18px;line-height:18px;border-radius:25px ;color: black;background-color:#fec007;min-width:225px;border-color: none;font-family:inherit;">Next Draw On: <span  id="current_game"></span></button>
+                                    <button class="btn btn-warning btn-block mt-3" id="refresh" style="font-size: 18px;line-height:18px;border-radius:25px ;color: black;background-color:#fec007;min-width:225px;border-color: none;font-family:Arial;">Next Draw On: <span  id="current_game"></span></button>
                                  </div>
                                  <div class="col-lg-2" style="padding:12px">
-                                    <button class="btn btn-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px;border-color: none;">Time To Draw: <span  id="timer"> </span></button>
+                                    <button class="btn btn-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px;border-color: none;font-family:Arial">Time To Draw: <span  id="timer"> </span></button>
                                  </div>
 
                               </td>
@@ -263,16 +270,15 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                        if(!empty($_GET['game_selected']))
                                        {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  order by `g_time` ASC ");
-                                          $gt=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        else
                                        {
                                           $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
-                                          $gt=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `g_time` ASC ");
                                        }
                                        ?>
-                                       <button class="btn btn-danger btn-block mt-1" style="font-size:18px;border-radius:25px;width:75%; border-color: none;"> 
-                                       Draw Date:  <?php  echo date('d-m-Y', strtotime(mysqli_fetch_array($gt)['win_date'])); ?></button>
+                                       <button class="btn btn-danger btn-block mt-1" style="font-family:Arial;font-size:18px;border-radius:25px;width:75%; border-color: none;"> 
+                                       Draw Date:  <?php  //echo date('d-m-Y', strtotime(mysqli_fetch_array($gt)['win_date'])); 
+                                       if(!empty($_GET['report_date'])) {echo date('d-m-Y', strtotime($_GET['report_date']));}else{echo date('d-m-Y', strtotime($today_date));}?></button>
                                        <br>
                                        <p><br></p>
                                        <hr class="hr">
@@ -322,10 +328,10 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_kalyan_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_kalyan_pana as $winning_kalyan_pana_result ) {
-                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107'>" . 'NEW KALYAN ' . 
+                                                   echo "<td style='font-family:Arial'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107'>" . 'NEW KALYAN ' . 
                                                    "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_kalyan_pana1 //. '</h3><p  class="label label-info" >' 
-                                                   . $rev_winning_kalyan_pana2 . '</b></p><br><br>'  . '<span style="margin-left:10px;font-size:18px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
+                                                   . $rev_winning_kalyan_pana2 . '</b></p><br><br>'  . '<span style="margin-left:10px;font-size:22px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
                                                    . "<b>" . $couple[0]['game_time'] . ''. "&nbsp;-&nbsp;" 
                                                    . "" . $couple[1]['game_time'] .'</b></span>'   .  " <br></b></p></td>";
                                                    // }
@@ -341,12 +347,12 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_bazar_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_bazar_pana as $winning_bazar_pana_result ) {
-                                                   echo "<td style=''><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107''>" . " NEW MAIN BAZAR " . 
+                                                   echo "<td style='font-family:Arial'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107''>" . " NEW MAIN BAZAR " . 
                                                    "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_bazar_pana1 //. '</h3><p  class="label label-info" >' 
-                                                   . $rev_winning_bazar_pana2 . '</b></p><br><br>' .  '<span style="margin-left:10px;font-size:20px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
+                                                   . $rev_winning_bazar_pana2 . '</b></p><br><br>' .  '<span style="margin-left:10px;font-size:22px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
                                                    . "<b>" . $couple[0]['game_time'] . ''."&nbsp;-&nbsp;"
-                                                   . "" . $couple[1]['game_time'] .'</b></span>'   .  " <br></p></td>";
+                                                   . "" . $couple[1]['game_time'] .'</b></span>'   .  " <br></b></p></td>";
                                                    // }
                                                    ?>
                                                    </td>
