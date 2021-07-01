@@ -27,11 +27,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo  json_encode(array("message" => $err, "success" => false));
     }
 }
-else{
+else{  
+
+    $alter_result = mysqli_query($con, "UPDATE `result_number_setting` SET
+    `game_time`='".$game_time."', `setted_kalyan_pana`='".$setted_kalyan_pana . "-" . $kalyan_select."',
+    `setted_bazar_pana`='".$setted_bazar_pana . "-" . $bazar_select."',`added_date`='".$added_date."',`added_time`='".date('H:i:s')."' 
+     WHERE `game_time`='$game_time' and `added_date`='".date('Y-m-d')."' ");
     
-    $data = "Result Already Setted.";
+
+    if ($alter_result  === TRUE) {
+        $data = "Result Updated Successfully";
         echo  json_encode(
             array("message" => $data, "success" => true)
         );
+    } else {
+        $err = "Error: " . $insert_result . "<br>" . mysqli_error($con);
+        echo  json_encode(array("message" => $err, "success" => false));
+    }
 }
 }
