@@ -40,7 +40,7 @@ if (isset($_POST['game_time'])) {
 </div> -->
    <hr>
    <div class="row form-group">
-      <div class="col col-md-1"><label for="select" class=" form-control-label">Single Pana's</label></div>
+      <!-- <div class="col col-md-1"><label for="select" class=" form-control-label">Single Pana's</label></div> -->
       <?php
       $single_pana = explode(",", $row['single_pana']);
 
@@ -51,7 +51,7 @@ if (isset($_POST['game_time'])) {
             $single_pana_value = $single_pana[$i];
          }
       ?>
-         <div class="col col-md"><input onclick="selectValue(event)" type="text" id="single_pana<?php echo $i ?>" name=single_pana[] value="<?php echo $single_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px;" maxlength="3" /></div>
+         <div class="col col-md"><input readonly onclick="selectValue(event)" type="text" id="single_pana<?php echo $i ?>" name=single_pana[] value="<?php echo $single_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px;" maxlength="3" /></div>
 
          <script type="text/javascript">
             $('#single_pana<?php echo $i ?>').keydown(function(e) {
@@ -64,7 +64,7 @@ if (isset($_POST['game_time'])) {
       } ?>
    </div>
    <div class="row form-group">
-      <div class="col col-md-2"><label for="select" class=" form-control-label">Double Panas</label></div>
+      <!-- <div class="col col-md-2"><label for="select" class=" form-control-label">Double Panas</label></div> -->
       <?php
       $double_pana = explode(",", $row['double_pana']);
       for ($i = 0; $i < 9; $i++) {
@@ -74,7 +74,7 @@ if (isset($_POST['game_time'])) {
             $double_pana_value = $double_pana[$i];
          }
       ?>
-         <div class="col col-md-1" style="text-align: center; margin: 0 auto;"><input type="text" onclick="selectValue(event)" id="double_pana<?php echo $i ?>" name=double_pana[] value="<?php echo $double_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px; text-align: center;" maxlength="3"></div>
+         <div class="col col-md-1" style="text-align: center; margin: 0 auto;"><input type="text" readonly onclick="selectValue(event)" id="double_pana<?php echo $i ?>" name=double_pana[] value="<?php echo $double_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px; text-align: center;" maxlength="3"></div>
          <script type="text/javascript">
             $('#double_pana<?php echo $i ?>').keydown(function(e) {
 
@@ -86,7 +86,7 @@ if (isset($_POST['game_time'])) {
       <?php } ?>
    </div>
    <div class="row form-group">
-      <div class="col col-md-2"><label for="select" class=" form-control-label">Triple Pana's</label></div>
+      <!-- <div class="col col-md-2"><label for="select" class=" form-control-label">Triple Pana's</label></div> -->
       <?php
       $triple_pana = explode(",", $row['triple_pana']);
       for ($i = 0; $i < 1; $i++) {
@@ -96,8 +96,8 @@ if (isset($_POST['game_time'])) {
             $triple_pana_value = $triple_pana[$i];
          }
       ?>
-         <div class="col col-md-1" style="text-align: center; margin-left:35%;">
-            <input type="text" onclick="selectValue(event)" id="triple_pana<?php echo $i ?>" name=triple_pana[] value="<?php echo $triple_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px; text-align:center;" maxlength="3">
+         <div class="col col-md-1" style="text-align: center; margin-left:45%;">
+            <input type="text" readonly onclick="selectValue(event)" id="triple_pana<?php echo $i ?>" name=triple_pana[] value="<?php echo $triple_pana_value; ?>" class="is-valid form-control-success form-control number-input" style="font-size: 15px; text-align:center;" maxlength="3">
          </div>
          <script type="text/javascript">
             $('#triple_pana<?php echo $i ?>').keydown(function(e) {

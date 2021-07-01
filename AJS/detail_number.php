@@ -42,22 +42,22 @@ $admin_id = $_SESSION['id']; ?>
                   <div class="basic-form">
 
                      <div class="form-group">
-                        <center><?php echo date('d-m-Y', strtotime($row['added_date'])); ?></center>
+                        <center>Draw Date - <?php echo date('d-m-Y', strtotime($row['added_date'])); ?></center>
                      </div>
                      <div class="form-group">
-                        <center>DrawTime - <?php echo $row['game_time']; ?></center>
+                        <center>Draw Time - <?php echo $row['game_time']; ?></center>
                      </div>
                      <div class="form-group">
 
-                        <center>Changed Time - <?php echo $row['added_time']; ?></center>
+                        <center>Changed Time - <?php echo date('h:i:s-A', strtotime($row['added_time'])); ?></center>
+                     </div>
+                     <div class="form-group">
+
+                        <center>New Kalyan - <?php echo $row['setted_kalyan_pana']; ?></center>
                      </div>
                      <div class="form-group">
 
                         <center>New Main Bazar - <?php echo $row['setted_bazar_pana']; ?></center>
-                     </div>
-                     <div class="form-group">
-
-                        <center>New Kalyan pana - <?php echo $row['setted_kalyan_pana']; ?></center>
                      </div>
 
                      <div class="form-group">

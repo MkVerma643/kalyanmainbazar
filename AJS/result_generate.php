@@ -127,7 +127,9 @@ $admin_id = $_SESSION['id']; ?>
                         <div style="width: 800px;margin: 0px auto;padding: 5px;">
                            <div style="color: #000;width: 48%;float: left; text-align:center;">
                               <label for="ignore_number" class=" form-control-label">New Kalyan</label><br>
-                              <select class="0-9" onchange="getPanaInfo(event,'New Kalyan')" name="kalyan_select" style="font-size: 20px;width:220px;" id="kalyan_select"></select>
+                              <select class="0-9" onchange="getPanaInfo(event,'New Kalyan')" name="kalyan_select" 
+                              style="font-size: 20px;width:220px;" id="kalyan_select">
+                              <option value="">Select</option></select>
                               <div class="col-md-5" style="margin:0px auto;">
                                  <input type="text" id="setted_kalyan_pana" readonly name="setted_kalyan_pana" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
                               </div>
@@ -135,7 +137,9 @@ $admin_id = $_SESSION['id']; ?>
                            <div class="vl" style="border-left: 6px solid grey;"></div>
                            <div style="color: #000;width: 48%;float: right;text-align:center;">
                               <label for="ignore_number" class=" form-control-label">New Main Bazar</label><br>
-                              <select class="0-9" onchange="getPanaInfo(event,'New Main Bazar')" name="bazar_select" style="font-size: 20px;width:220px;" id="bazar_select"></select>
+                              <select class="0-9" onchange="getPanaInfo(event,'New Main Bazar')" name="bazar_select" 
+                              style="font-size: 20px;width:220px;" id="bazar_select">
+                              <option value="">Select</option></select>
                               <div class="col-md-5" style="margin:0px auto;">
                                  <input type="text" id="setted_bazar_pana" readonly name="setted_bazar_pana" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
                               </div>

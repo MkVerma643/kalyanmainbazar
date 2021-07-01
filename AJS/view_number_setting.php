@@ -47,6 +47,7 @@ $admin_id = $_SESSION['id']; ?>
                   <div class="col-md-3">
                      <div class="form-group">
                         <select id='game_selected' name="game_selected" class="form-control">
+                           <option value="">Select Result Time</option>
                            <?php
                            $c_time = date('H:i:s');
 
