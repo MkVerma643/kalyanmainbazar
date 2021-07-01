@@ -194,8 +194,8 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                               <td align="center" valign="top" style="padding:10px">
 
                               <div class="col-lg-1" style="padding:10px;font-family:Arial" >
-                              <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
-                                 Home</button>
+                              <button class="btn btn-warning  btn-block mt-3" style="border-radius:25px;color:black;background-color:#fec007;">
+                                 <a href="http://kalyanmainbazar.com/" style="text-decoration: none;color: inherit;">Home</a></button>
                               </div>
                               <div class="col-lg-1" style="padding:10px;font-family:Arial" >
                               <button class="btn btn-warning  btn-block mt-3" id="refresh" onClick="history.go(0)" style="border-radius:25px;color:black;background-color:#fec007;">
