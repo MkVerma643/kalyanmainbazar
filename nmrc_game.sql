@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2021 at 03:12 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Jul 03, 2021 at 03:19 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -55,6 +56,27 @@ CREATE TABLE `game_time` (
   `cancel_ticket` int(20) NOT NULL DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `game_time`
+--
+
+INSERT INTO `game_time` (`game_time_id`, `game_time`, `g_time`, `interval`, `saving`, `cancel_ticket`) VALUES
+(1, '09:00 AM', '09:00:00', 60, 10, 2),
+(2, '10:00 AM', '10:00:00', 60, 10, 2),
+(3, '11:00 AM', '11:00:00', 60, 10, 2),
+(4, '12:00 PM', '12:00:00', 60, 10, 2),
+(5, '01:00 PM', '13:00:00', 60, 10, 2),
+(6, '02:00 PM', '14:00:00', 60, 10, 2),
+(7, '03:00 PM', '15:00:00', 60, 10, 2),
+(8, '04:00 PM', '16:00:00', 60, 10, 2),
+(9, '05:00 PM', '17:00:00', 60, 10, 2),
+(10, '06:00 PM', '18:00:00', 60, 10, 2),
+(11, '07:00 PM', '19:00:00', 60, 10, 2),
+(12, '08:00 PM', '20:00:00', 60, 10, 2),
+(13, '09:00 PM', '21:00:00', 60, 10, 2),
+(14, '10:00 PM', '22:00:00', 60, 10, 2),
+(15, '11:00 PM', '23:00:00', 60, 10, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -81,7 +103,7 @@ INSERT INTO `panas` (`id`, `numbers`, `single_pana`, `double_pana`, `triple_pana
 (4, 4, '130,149,158,167,239,248,257,347,356,590,680,789', '112,220,266,338,400,446,455,699,770', '888'),
 (5, 5, '140,159,168,230,249,258,267,348,357,456,690,780', '113,122,177,339,366,447,500,799,889', '555'),
 (6, 6, '123,150,169,178,240,259,268,349,358,367,457,790', '600,114,277,330,448,466,556,880,899', '222'),
-(7, 7, '124,160,278,179,250,269,340,359,368,458,467,890', '115,133,188,223,377,449,557,566,400', '999'),
+(7, 7, '124,160,278,179,250,269,340,359,368,458,467,890', '115,133,188,223,377,449,557,566,700', '999'),
 (8, 8, '125,134,170,189,260,279,350,369,468,378,459,567', '116,224,233,288,440,477,558,800,990', '666'),
 (9, 9, '126,135,180,234,270,289,360,379,450,469,478,568', '117,144,199,225,388,559,577,667,900', '333');
 
@@ -99,6 +121,19 @@ CREATE TABLE `result_number_setting` (
   `added_date` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `added_time` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `result_number_setting`
+--
+
+INSERT INTO `result_number_setting` (`id`, `game_time`, `setted_kalyan_pana`, `setted_bazar_pana`, `added_date`, `added_time`) VALUES
+(20, '05:30 PM', '189-8', '269-7', '2021-06-30', '17:22:21'),
+(21, '06:00 PM', '189-8', '269-7', '2021-06-30', '17:23:09'),
+(22, '06:00 PM', '179-7', '259-6', '2021-06-30', '18:11:53'),
+(23, '06:00 PM', '179-7', '259-6', '2021-06-30', '18:12:17'),
+(24, '07:00 PM', '179-7', '340-7', '2021-07-01', '18:33:20'),
+(25, '07:30 PM', '189-8', '269-7', '2021-07-01', '18:34:49'),
+(26, '08:00 PM', '237-2', '449-7', '2021-07-01', '19:39:32');
 
 -- --------------------------------------------------------
 
@@ -147,6 +182,20 @@ CREATE TABLE `win_card` (
   `type` varchar(255) NOT NULL,
   `g_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `win_card`
+--
+
+INSERT INTO `win_card` (`id`, `game_time`, `winning_kalyan_pana`, `winning_bazar_pana`, `win_date`, `added_time`, `type`, `g_time`) VALUES
+(28, '09:00 AM', '230-5', '369-8', '2021-06-30', '2021-06-30', '', '11:44:48'),
+(29, '09:30 AM', '230-5', '224-8', '2021-06-30', '2021-06-30', '', '11:45:00'),
+(30, '10:00 AM', '230-5', '224-8', '2021-06-30', '2021-06-30', '', '11:45:06'),
+(31, '10:30 AM', '230-5', '224-8', '2021-06-30', '2021-06-30', '', '11:45:10'),
+(32, '11:00 AM', '230-5', '224-8', '2021-06-30', '2021-06-30', '', '11:45:15'),
+(33, '11:30 AM', '230-5', '189-8', '2021-06-30', '2021-06-30', '', '11:45:21'),
+(37, '06:00 PM', '189-8', '269-7', '2021-06-30', '06:00 PM', 'Auto', '18:00:12'),
+(38, '06:30 PM', '400-7', '444-2', '2021-06-30', '06:30 PM', 'Auto', '18:30:07');
 
 --
 -- Indexes for dumped tables
@@ -208,7 +257,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `game_time`
 --
 ALTER TABLE `game_time`
-  MODIFY `game_time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `game_time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `panas`
@@ -220,7 +269,7 @@ ALTER TABLE `panas`
 -- AUTO_INCREMENT for table `result_number_setting`
 --
 ALTER TABLE `result_number_setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `test`
@@ -238,7 +287,7 @@ ALTER TABLE `welcome_msg`
 -- AUTO_INCREMENT for table `win_card`
 --
 ALTER TABLE `win_card`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
