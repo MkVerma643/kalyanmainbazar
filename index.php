@@ -269,11 +269,11 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                     <?php 
                                        if(!empty($_GET['game_selected']))
                                        {
-                                          $qry=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  order by `game_time` ASC ");
+                                          $qry=mysqli_query($con,"SELECT * FROM `win_card` where `game_time`='".$_GET['game_selected']."' and `win_date`='".$today_date."'  ORDER BY STR_TO_DATE(game_time, '%l:%i %p');");
                                        }
                                        else
                                        {
-                                          $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  order by `game_time` ASC ");
+                                          $qry=mysqli_query($con,"SELECT * FROM `win_card` where `win_date`='".$today_date."'  ORDER BY STR_TO_DATE(game_time, '%l:%i %p');");
                                        }
                                        ?>
                                        <button class="btn btn-danger btn-block mt-1" style="font-family:Arial;font-size:18px;border-radius:25px;width:75%; border-color: none;"> 
