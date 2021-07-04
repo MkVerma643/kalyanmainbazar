@@ -23,14 +23,16 @@ $admin_id = $_SESSION['id']; ?>
    </div>
    <?php
    if (isset($_POST['submit'])) {
+      
       $game_time = $_POST['game_selected'];
       $setted_kalyan_pana = implode(",", $_POST['setted_kalyan_pana']);
       $setted_bazar_pana = implode(",", $_POST['setted_bazar_pana']);
-
+      
       $check=mysqli_query($con,"SELECT * FROM `result_number_setting` where `game_time`='$game_time' and `added_date`='".date('Y-m-d')."' ");
       if (mysqli_num_rows($check) < 1) {
          $insert = mysqli_query($con, "INSERT INTO `result_number_setting`(`game_time`, `setted_kalyan_pana`, `setted_bazar_pana`, `added_date`, `added_time`) 
                         VALUES ('" . $game_time . "','" . $setted_kalyan_pana . "','" . $setted_bazar_pana . "','" . date('Y-m-d') . "','" . date('h:i:s A') . "')");
+      
       } 
    }
    ?>
@@ -69,10 +71,11 @@ $admin_id = $_SESSION['id']; ?>
                         $(function() {
                            var $select = $(".0-9");
                            for (i = 0; i <= 9; i++) {
-                              $select.append($('<option></option>').val(i).html(i))
-                              // console.log($select)
+                           $select.append($('<option ></option>').val(i).html(i))
+                           
                            }
                         });
+                        
                      </script>
 
                      <div class="row form-group">
@@ -80,21 +83,40 @@ $admin_id = $_SESSION['id']; ?>
                         <div style="width: 800px;margin: 0px auto;padding: 5px;">
                            <div style="color: #000;width: 48%;float: left; text-align:center;">
                               <label for="ignore_number" class=" form-control-label">New Kalyan</label><br>
-                              <select class="0-9"  onchange="getPanaInfo(event,'New Kalyan')" name="kalyan_select"
-                                style="font-size: 20px; width:220px;"  id="kalyan_select">
-                                <option value="">Select</option></select>
+                              <select  onchange="getPanaInfo(event,'New Kalyan')" name="kalyan_select" 
+                                style="font-size: 20px; width:220px;"  id="kalyan_select" >
+                                <option value="">Select</option>
+                                <?php
+                                 for ($i=0; $i<=9; $i++)
+                                 {
+                                    ?>
+                                       <option value="<?php echo $i;?>" <?php echo $_SESSION['kalyan_select'] == $i ? ' selected' : ''; ?>><?php echo $i;?></option>
+                                    <?php
+                                 }
+                                 ?>
+                                </select>
                               <div class="col-md-5" style="margin:0px auto;">
-                                 <input type="text" id="setted_kalyan_pana" autocomplete="on" readonly name="setted_kalyan_pana" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
+                              <input type="text" id="setted_kalyan_pana" value="<?php echo $_SESSION['setted_kalyan_pana']; ?>" readonly name="setted_kalyan_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
+                              
                               </div>
                            </div>
                            <div class="vl" style="border-left: 6px solid grey;"></div>
                            <div style="color: #000;width: 48%;float: right;text-align:center;">
                               <label for="ignore_number" class=" form-control-label">New Main Bazar</label><br>
-                              <select class="0-9" onchange="getPanaInfo(event,'New Main Bazar')" name="bazar_select" 
-                              style="font-size: 20px;width:220px;" id="bazar_select">
-                              <option value="">Select</option></select>
+                              <select onchange="getPanaInfo(event,'New Main Bazar')" name="bazar_select" 
+                              style="font-size: 20px;width:220px;" id="bazar_select" >
+                              <option value="">Select</option>
+                              <?php
+                                 for ($i=0; $i<=9; $i++)
+                                 {
+                                    ?>
+                                       <option value="<?php echo $i;?>" <?php echo $_SESSION['bazar_select'] == $i ? ' selected' : ''; ?>><?php echo $i;?></option>
+                                    <?php
+                                 }
+                                 ?>
+                              </select>
                               <div class="col-md-5" style="margin:0px auto;">
-                                 <input type="text" id="setted_bazar_pana" autocomplete="on" readonly name="setted_bazar_pana" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
+                                 <input type="text" id="setted_bazar_pana" value="<?php echo $_SESSION['setted_bazar_pana']; ?>" readonly name="setted_bazar_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
                               </div>
                            </div>
                         </div>
