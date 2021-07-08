@@ -72,7 +72,7 @@ if (mysqli_num_rows($select) > 0) {
 
 function fetchPanaRandomly($id, $con)
 {
-   $ran = array("single_pana", "double_pana", "triple_pana");
+   $ran = array("single_pana", "double_pana");
    $k = array_rand($ran);
    $v = $ran[$k];
    $check_num = mysqli_query($con, "SELECT * FROM 
