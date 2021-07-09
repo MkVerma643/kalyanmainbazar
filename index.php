@@ -328,7 +328,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_kalyan_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_kalyan_pana as $winning_kalyan_pana_result ) {
-                                                   echo "<td style='font-family:Arial'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107'>" . 'NEW KALYAN ' . 
+                                                   echo "<td style='font-family:Arial; border-top:none'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107'>" . 'NEW KALYAN ' . 
                                                    "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_kalyan_pana1 //. '</h3><p  class="label label-info" >' 
                                                    . $rev_winning_kalyan_pana2 . '</b></p><br><br>'  . '<span style="margin-left:10px;font-size:22px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
@@ -347,7 +347,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                                    $rev_winning_bazar_pana2=$rev_string[1]."-".$rev_string[0];
 
                                                    // foreach ($winning_bazar_pana as $winning_bazar_pana_result ) {
-                                                   echo "<td style='font-family:Arial'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107''>" . " NEW MAIN BAZAR " . 
+                                                   echo "<td style='font-family:Arial; border-top:none'><b><p class='btn btn-warning mt-3' style='font-size:22px;border-radius:15px;width:275px;color:black;background-color:#ffc107''>" . " NEW MAIN BAZAR " . 
                                                    "</b></p><br><br><p class='btn btn-warning mt-3' style='font-size:30px;border-radius:15px;width:200px;color:black;background-color:#ffc107''><b>" 
                                                    . $winning_bazar_pana1 //. '</h3><p  class="label label-info" >' 
                                                    . $rev_winning_bazar_pana2 . '</b></p><br><br>' .  '<span style="margin-left:10px;font-size:22px;border-radius:15px;width:325px;color:black;background-color:#ffc107" class="btn btn-warning mt-3" >' 
