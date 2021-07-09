@@ -27,9 +27,9 @@ $admin_id = $_SESSION['id']; ?>
    if (isset($_POST['submit'])) {
       $game_date = $_POST['game_date'];
       $game_time = $_POST['game_selected'];
-      $batch_1_result = implode(",", $_POST['batch_1']);
-      $batch_2_result = implode(",", $_POST['batch_2']);
-      $batch_3_result = implode(",", $_POST['batch_3']);
+      // $batch_1_result = implode(",", $_POST['batch_1']);
+      // $batch_2_result = implode(",", $_POST['batch_2']);
+      // $batch_3_result = implode(",", $_POST['batch_3']);
       if (!empty($batch_1_result) and !empty($batch_2_result) and !empty($batch_3_result)) {
          $select = mysqli_query($con, "SELECT `g_time` FROM `game_time` WHERE `game_time`='" . $game_time . "'");
 
@@ -73,7 +73,7 @@ $admin_id = $_SESSION['id']; ?>
             echo '<script> alert("Invalid Game Time"); </script>';
          }
       } else {
-         echo '<script> alert("Empty Number Pls select number"); </script>';
+         echo '<script> alert("Select Ok to Declare Result"); </script>';
       }
    }
 
@@ -190,24 +190,30 @@ $admin_id = $_SESSION['id']; ?>
    }
 
    $("form").submit(function(a) {
-      a.preventDefault();
-      var values = {};
-      $.each($('form').serializeArray(), function(i, field) {
-         values[field.name] = field.value;
-      });
-      $.ajax({
-         url: "ajax/store_wincard.php",
-         type: "POST",
-         data: values,
-         dataType: 'JSON',
-         success: (result) => {
-            alert(result.message)
-         },
-         error: function(result) {
-            alert(result.message)
-            location.reload();
-         }
-      });
+      var r = confirm("Confirm to Declare Result!");
+         if (r == true) {
+         a.preventDefault();
+         var values = {};
+         $.each($('form').serializeArray(), function(i, field) {
+            values[field.name] = field.value;
+         });
+         $.ajax({
+            url: "ajax/store_wincard.php",
+            type: "POST",
+            data: values,
+            dataType: 'JSON',
+            success: (result) => {
+               alert(result.message)
+            },
+            error: function(result) {
+               alert(result.message)
+               location.reload();
+            }
+         });
+      }else{
+         alert('You pressed Cancel!');
+         location.reload();
+      }
    });
 
    // $(document).on('change', '#game_selected', function() {
