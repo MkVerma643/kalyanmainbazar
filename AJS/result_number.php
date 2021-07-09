@@ -90,7 +90,7 @@ $admin_id = $_SESSION['id']; ?>
                                  for ($i=0; $i<=9; $i++)
                                  {
                                     ?>
-                                       <option value="<?php echo $i;?>" <?php echo $_SESSION['kalyan_select'] == $i ? ' selected' : ''; ?>><?php echo $i;?></option>
+                                       <option value="<?php echo $i;?>" <?php if(isset($_SESSION['kalyan_select'])){echo $_SESSION['kalyan_select'] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
                                     <?php
                                  }
                                  ?>
@@ -110,7 +110,7 @@ $admin_id = $_SESSION['id']; ?>
                                  for ($i=0; $i<=9; $i++)
                                  {
                                     ?>
-                                       <option value="<?php echo $i;?>" <?php echo $_SESSION['bazar_select'] == $i ? ' selected' : ''; ?>><?php echo $i;?></option>
+                                       <option value="<?php echo $i;?>" <?php if(isset($_SESSION['kalyan_select'])){echo $_SESSION['bazar_select'] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
                                     <?php
                                  }
                                  ?>
