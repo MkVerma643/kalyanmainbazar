@@ -190,7 +190,13 @@ $admin_id = $_SESSION['id']; ?>
    }
 
    $("form").submit(function(a) {
-      var r = confirm("Confirm to Declare Result!");
+      var game_time = $('#game_selected').val();
+      var game_date = $('#game_date').val();
+      var kalyan_select = $('#kalyan_select').val();
+      var bazar_select = $('#bazar_select').val();
+      var setted_kalyan_pana = $('#setted_kalyan_pana').val();
+      var setted_bazar_pana = $('#setted_bazar_pana').val();
+      var r = confirm(`Do you want to Declare Result ?? \nDrawTime: ${game_time}  \nDate: ${game_date} \nNew Kalyan: ${kalyan_select}-${setted_kalyan_pana} & New Bazar: ${bazar_select}-${setted_bazar_pana}`);
          if (r == true) {
          a.preventDefault();
          var values = {};
