@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $kalyan_select = $_POST['kalyan_select'];
 
 
-    $check_win = mysqli_query($con, "SELECT `id` FROM `win_card` WHERE `game_time`='" . $game_time . "' and `win_date`='" . $win_date . "' ");
+    $check_win = mysqli_query($con, "SELECT `id` FROM `win_card` WHERE `game_time`>'" . $game_time . "' and `win_date`='" . $win_date . "' ");
     if (mysqli_num_rows($check_win) < 1) {
 
     $insert_result = mysqli_query($con, "INSERT INTO `win_card`
@@ -40,10 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo  json_encode(array("message" => $err, "success" => false));
         }
 }
-    else {
-                  $data = "Result Already Declared";
+    else if($game_time>date('h:i A')){
+        $data = "You can not declare Future Result!";
             echo  json_encode(
                 array("message" => $data, "success" => true)
             );
-               }
+    }
+    else {
+            $data = "Result Already Declared";
+            echo  json_encode(
+                array("message" => $data, "success" => true)
+            );
+        }
 }
