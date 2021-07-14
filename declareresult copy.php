@@ -18,69 +18,8 @@ if (mysqli_num_rows($select) > 0) {
       `game_time`='" . $game_time . "' and 
       `added_date`='" . $game_date . "'");
 
-      $check_kalyan = mysqli_query($con, "SELECT * FROM 
-      `result_number_setting` WHERE 
-      `game_time`='" . $game_time . "' and 
-      `setted_bazar_pana`='-' and 
-      `added_date`='" . $game_date . "'");
 
-      $check_bazar = mysqli_query($con, "SELECT * FROM 
-      `result_number_setting` WHERE 
-      `game_time`='" . $game_time . "' and 
-      `setted_kalyan_pana`='-' and 
-      `added_date`='" . $game_date . "'");
-
-
-      if (mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_kalyan) > 0) {
-         // $random_0_to_9 = rand(0, 9);
-         $random_0_to_91 = rand(0, 9);
-         // $winning_kalyan_pana = fetchPanaRandomly($random_0_to_9, $con);
-         $winning_bazar_pana = fetchPanaRandomly($random_0_to_91, $con);
-
-         $row = mysqli_fetch_assoc($check_num);
-         $insert_result = mysqli_query($con, "INSERT INTO `win_card`(
-         `game_time`, 
-         `winning_kalyan_pana`, 
-         `winning_bazar_pana`, 
-         `win_date`, 
-         `added_time`, 
-         `type`,
-         `g_time`)
-       VALUES 
-       ('$game_time','"
-            . $row['setted_kalyan_pana'] . "','"
-            . $winning_bazar_pana . "','"
-            . $row['added_date'] . "','"
-            . date('h:i A') . "',
-         'Auto','"
-            . date('H:i:s') . "')");
-         }
-      else if(mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_bazar) > 0){
-         $random_0_to_9 = rand(0, 9);
-         // $random_0_to_91 = rand(0, 9);
-         $winning_kalyan_pana = fetchPanaRandomly($random_0_to_9, $con);
-         // $winning_bazar_pana = fetchPanaRandomly($random_0_to_91, $con);
-
-         $row = mysqli_fetch_assoc($check_num);
-         $insert_result = mysqli_query($con, "INSERT INTO `win_card`(
-         `game_time`, 
-         `winning_kalyan_pana`, 
-         `winning_bazar_pana`, 
-         `win_date`, 
-         `added_time`, 
-         `type`,
-         `g_time`)
-       VALUES 
-       ('$game_time','"
-            . $winning_kalyan_pana . "','"
-            . $row['setted_bazar_pana'] . "','"
-            . $row['added_date'] . "','"
-            . date('h:i A') . "',
-         'Auto','"
-            . date('H:i:s') . "')");
-         
-      }
-      else if(mysqli_num_rows($check_num) > 0 || mysqli_num_rows($check_bazar) > 0 && mysqli_num_rows($check_kalyan) > 0){
+      if (mysqli_num_rows($check_num) > 0) {
          $row = mysqli_fetch_assoc($check_num);
          $insert_result = mysqli_query($con, "INSERT INTO `win_card`(
          `game_time`, 
@@ -98,7 +37,8 @@ if (mysqli_num_rows($select) > 0) {
             . date('h:i A') . "',
          'Auto','"
             . date('H:i:s') . "')");
-      } 
+            
+         } 
       else{
 
          $random_0_to_9 = rand(0, 9);
