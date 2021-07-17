@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $bazar_select = $_POST['bazar_select'];
     $kalyan_select = $_POST['kalyan_select'];
 
-    $_SESSION['kalyan_select'] = $kalyan_select;
-    $_SESSION['bazar_select'] = $bazar_select;
-    $_SESSION['setted_kalyan_pana'] = $setted_kalyan_pana;
-    $_SESSION['setted_bazar_pana'] = $setted_bazar_pana;
+    // $_SESSION['kalyan_select'] = $kalyan_select;
+    // $_SESSION['bazar_select'] = $bazar_select;
+    // $_SESSION['setted_kalyan_pana'] = $setted_kalyan_pana;
+    // $_SESSION['setted_bazar_pana'] = $setted_bazar_pana;
 
     $check=mysqli_query($con,"SELECT * FROM `result_number_setting` where `game_time`='$game_time' and `added_date`='".date('Y-m-d')."' ");
     if (mysqli_num_rows($check) < 1) {
