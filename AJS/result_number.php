@@ -54,35 +54,41 @@ $admin_id = $_SESSION['id']; ?>
                      <div class="row form-group">
                         <div class="col col-md-3"><label for="select" class=" form-control-label">Select Game</label></div>
                         <div class="col-md-6">
-                           <select id='game_selected' name="game_selected" class="form-control" required="">
+                           <select id='game_selected' name="game_selected" class="form-control" required="" >
                               <?php 
-                                 $c_time=date('H:i:s');
+                                   $c_time=date('H:i:s');
                                    $no=0;
                                    $gt=mysqli_query($con,"SELECT * From `game_time` where `g_time`> '$c_time'");
                                    while ($row=mysqli_fetch_array($gt)) {
                                    $no++; ?>
-                              <option value='<?php echo $row['game_time'] ?>'><?php echo $row['game_time'] ?></option>
+                              <option value='<?php echo $row['game_time'] ?>' <?php if(isset($_GET['game_time'])){echo $row['game_time'] == $_GET['game_time'] ? ' selected' : ''; }?>><?php echo $row['game_time'] ?></option>
                               <?php } ?>
                            </select>
                         </div>
                      </div>
 
-                     <script>
-                        $(function() {
-                           var $select = $(".0-9");
-                           for (i = 0; i <= 9; i++) {
-                           $select.append($('<option ></option>').val(i).html(i))
-                           
-                           }
-                        });
-                        
-                     </script>
-
-                     <div class="row form-group">
+                     
+                     <div class="row form-group" >
                         <div style="width:100%;height:10%;margin: 0 auto;text-align: center;"><strong>Location</strong></div>
-                        <div style="width: 800px;margin: 0px auto;padding: 5px;">
+                        <?php 
+                              $current_time=date('H:i:s');
+                              $game=mysqli_query($con,"SELECT * From `game_time` where `g_time`> '$current_time'");
+                              if($rowDb=mysqli_fetch_array($game))
+                              { 
+                              $game_time=$_GET['game_time'];;
+                              $check=mysqli_query($con,"SELECT * FROM `result_number_setting` where `game_time`='".$game_time."' and `added_date`='".date('Y-m-d')."' ");
+                              $rowDb=mysqli_fetch_array($check);
+                              // print_r($rowDb['setted_kalyan_pana']);
+                              $setted_kalyan_result = $rowDb['setted_kalyan_pana'];
+                              $setted_kalyan_pana=explode('-',$setted_kalyan_result);
+                              $setted_bazar_result = $rowDb['setted_bazar_pana'];
+                              $setted_bazar_pana = explode('-',$setted_bazar_result);
+
+                              ?>
+                        <div style="width: 800px;margin: 0px auto;padding: 5px;" id="divheader">
                            <div style="color: #000;width: 48%;float: left; text-align:center;">
                               <label for="ignore_number" class=" form-control-label">New Kalyan</label><br>
+                           
                               <select  onchange="getPanaInfo(event,'New Kalyan')" name="kalyan_select" 
                                 style="font-size: 20px; width:220px;"  id="kalyan_select" >
                                 <option value="">Select</option>
@@ -90,13 +96,13 @@ $admin_id = $_SESSION['id']; ?>
                                  for ($i=0; $i<=9; $i++)
                                  {
                                     ?>
-                                       <option value="<?php echo $i;?>" <?php if(isset($_SESSION['kalyan_select'])){echo $_SESSION['kalyan_select'] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
+                                       <option value="<?php echo $i;?>" <?php if(isset($setted_kalyan_pana[1])){echo $setted_kalyan_pana[1] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
                                     <?php
                                  }
                                  ?>
                                 </select>
                               <div class="col-md-5" style="margin:0px auto;">
-                              <input type="text" id="setted_kalyan_pana" value="<?php echo $_SESSION['setted_kalyan_pana']; ?>" readonly name="setted_kalyan_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
+                              <input type="text" id="setted_kalyan_pana" value="<?php echo $setted_kalyan_pana[0]; ?>" readonly name="setted_kalyan_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
                               
                               </div>
                            </div>
@@ -110,18 +116,19 @@ $admin_id = $_SESSION['id']; ?>
                                  for ($i=0; $i<=9; $i++)
                                  {
                                     ?>
-                                       <option value="<?php echo $i;?>" <?php if(isset($_SESSION['kalyan_select'])){echo $_SESSION['bazar_select'] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
+                                       <option value="<?php echo $i;?>" <?php if(isset($setted_bazar_pana[1])){echo $setted_bazar_pana[1] == $i ? ' selected' : ''; }?>><?php echo $i;?></option>
                                     <?php
                                  }
                                  ?>
                               </select>
                               <div class="col-md-5" style="margin:0px auto;">
-                                 <input type="text" id="setted_bazar_pana" value="<?php echo $_SESSION['setted_bazar_pana']; ?>" readonly name="setted_bazar_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
+                                 <input type="text" id="setted_bazar_pana" value="<?php echo $setted_bazar_pana[0]; ?>" readonly name="setted_bazar_pana" autocomplete="on" class="is-valid form-control-success form-control number-input" style="font-size: 26px; text-align:center" maxlength="3" />
                               </div>
                            </div>
                         </div>
+                        <?php } ?>
                      </div>
-
+                     
                      <label class="text-center" id='selectedType'>Select Number</label>
 
                      <div id='divdata'>
@@ -147,11 +154,13 @@ $admin_id = $_SESSION['id']; ?>
 
 
 <script type="text/javascript">
+
    function getPanaInfo(event, type) {
       let selectedType = $("#selectedType").html(type);
 
       $('#divdata').empty();
       var game_time = $('#game_selected').val();
+      document.cookie=game_time;
       var numbers = event.target.value;
       console.log(game_time, numbers);
       // 'game_time=' + game_time + 'numbers=' + parseInt(numbers)
@@ -190,6 +199,26 @@ $admin_id = $_SESSION['id']; ?>
       });
    });
 
+
+   $(document).on('change', '#game_selected',function(){
+      // $('#divdata1').empty();  
+     var game_time= $(this).val();
+     if(game_time !='')
+     {
+         console.log(game_time);  
+         document.cookie= "game_time='+game_time'";
+         window.location.href = "result_number.php?game_time=" + game_time;
+      }
+    });
+
+   //  $(document).ready(function (game_time) {
+   //             document.cookie= "game_time='+game_time'";
+   //             console.log(game_time);  
+   //             var game_time = game_time;
+   //             window.location.href = "result_number.php?game_time=" + game_time;
+   //          });
+            
+   
    //$(document).ready(function() {
 
 
