@@ -75,7 +75,12 @@ $admin_id = $_SESSION['id']; ?>
                               $game=mysqli_query($con,"SELECT * From `game_time` where `g_time`> '$current_time'");
                               if($rowDb=mysqli_fetch_array($game))
                               { 
-                              $game_time=$_GET['game_time'];;
+                                 if(isset($_GET['game_time'])){
+                                    $game_time=$_GET['game_time'];
+                                 }
+                                 else{
+                                    $game_time=$rowDb['game_time'];
+                                 }
                               $check=mysqli_query($con,"SELECT * FROM `result_number_setting` where `game_time`='".$game_time."' and `added_date`='".date('Y-m-d')."' ");
                               $rowDb=mysqli_fetch_array($check);
                               // print_r($rowDb['setted_kalyan_pana']);
