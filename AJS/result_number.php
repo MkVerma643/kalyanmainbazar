@@ -162,8 +162,15 @@ $admin_id = $_SESSION['id']; ?>
 
    function getPanaInfo(event, type) {
       let selectedType = $("#selectedType").html(type);
-
       $('#divdata').empty();
+      if(type == 'New Kalyan'){
+         console.log(type);
+         document.getElementById("setted_kalyan_pana").value = "";
+      }
+      else{
+         console.log(type);
+         document.getElementById("setted_bazar_pana").value = "";
+      }
       var game_time = $('#game_selected').val();
       document.cookie=game_time;
       var numbers = event.target.value;
