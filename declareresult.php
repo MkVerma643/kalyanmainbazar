@@ -21,13 +21,15 @@ if (mysqli_num_rows($select) > 0) {
       $check_kalyan = mysqli_query($con, "SELECT * FROM 
       `result_number_setting` WHERE 
       `game_time`='" . $game_time . "' and 
-      `setted_bazar_pana`='-' and 
+      `setted_bazar_pana`='-' OR 
+      `setted_bazar_pana`='-0' and 
       `added_date`='" . $game_date . "'");
 
       $check_bazar = mysqli_query($con, "SELECT * FROM 
       `result_number_setting` WHERE 
       `game_time`='" . $game_time . "' and 
-      `setted_kalyan_pana`='-' and 
+      `setted_kalyan_pana`='-' OR 
+      `setted_kalyan_pana`='-0' and 
       `added_date`='" . $game_date . "'");
 
 
