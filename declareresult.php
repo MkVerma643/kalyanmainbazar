@@ -21,19 +21,27 @@ if (mysqli_num_rows($select) > 0) {
       $check_kalyan = mysqli_query($con, "SELECT * FROM 
       `result_number_setting` WHERE 
       `game_time`='" . $game_time . "' and 
-      `setted_bazar_pana`='-' OR 
+      `setted_bazar_pana`='-' and 
+      `added_date`='" . $game_date . "'");
+      $check_kalyan_0 = mysqli_query($con, "SELECT * FROM 
+      `result_number_setting` WHERE 
+      `game_time`='" . $game_time . "' and 
       `setted_bazar_pana`='-0' and 
       `added_date`='" . $game_date . "'");
 
       $check_bazar = mysqli_query($con, "SELECT * FROM 
       `result_number_setting` WHERE 
       `game_time`='" . $game_time . "' and 
-      `setted_kalyan_pana`='-' OR 
+      `setted_kalyan_pana`='-' and 
+      `added_date`='" . $game_date . "'");
+      $check_bazar_0 = mysqli_query($con, "SELECT * FROM 
+      `result_number_setting` WHERE 
+      `game_time`='" . $game_time . "' and 
       `setted_kalyan_pana`='-0' and 
       `added_date`='" . $game_date . "'");
 
 
-      if (mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_kalyan) > 0) {
+      if (mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_kalyan) > 0 || mysqli_num_rows($check_kalyan_0) > 0) {
          // $random_0_to_9 = rand(0, 9);
          $random_0_to_91 = rand(0, 9);
          // $winning_kalyan_pana = fetchPanaRandomly($random_0_to_9, $con);
@@ -57,7 +65,7 @@ if (mysqli_num_rows($select) > 0) {
          'Auto','"
             . date('H:i:s') . "')");
          }
-      else if(mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_bazar) > 0){
+      else if(mysqli_num_rows($check_num) > 0 && mysqli_num_rows($check_bazar) > 0 || mysqli_num_rows($check_bazar_0) > 0){
          $random_0_to_9 = rand(0, 9);
          // $random_0_to_91 = rand(0, 9);
          $winning_kalyan_pana = fetchPanaRandomly($random_0_to_9, $con);
