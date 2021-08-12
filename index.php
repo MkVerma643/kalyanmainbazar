@@ -95,7 +95,7 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
       }
       body {
          margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
-         background: #77b;
+         /*background: #77b;*/
       }
       body, td {
          font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
@@ -255,10 +255,10 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                                     
                                   
                                  <div class="col-lg-3" style="padding:12px">
-                                    <button class="btn btn-warning btn-block mt-3" id="refresh" style="font-size: 18px;line-height:18px;border-radius:25px ;color: black;background-color:#fec007;min-width:225px;border-color: none;font-family:Arial;">Next Draw On: <span  id="current_game"></span></button>
+                                    <button class="btn btn-warning btn-block mt-3" id="refresh" style="font-size: 18px;line-height:18px;border-radius:25px ;color: black;background-color:#fec007;min-width:225px;border-color: none;font-family:Arial;">Next Game Time: <span  id="current_game"></span></button>
                                  </div>
                                  <div class="col-lg-2" style="padding:12px">
-                                    <button class="btn btn-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px;border-color: none;font-family:Arial">Time To Draw: <span  id="timer"> </span></button>
+                                    <button class="btn btn-warning btn-block mt-3" style="font-size: 18px;line-height:18px;color: black;border-radius:25px;background-color:#fec007;min-width:219px;border-color: none;font-family:Arial">Time Remaining: <span  id="timer"> </span></button>
                                  </div>
 
                               </td>
@@ -393,15 +393,16 @@ if ($current_time > $start_t and $current_time < $end_time_row['g_time']) {
                               </td>
                            </tr>
                            <tr>
-                              <td width="980" height="50" align="center" valign="middle" bgcolor="#ccc" class="txt-2">
+                              <td width="980" height="50" align="center" valign="middle" bgcolor="#fcf8e3" class="txt-2">
                                  <table border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                        <tr>
                                           <td align="center">
                                              <span style="color: #000000">
-                                                Purchase of lottery using this website is strictly prohibited in the states where lotteries are banned. You must be above 18 years to play Online Lottery.
-                                                <br>
-                                                &nbsp;<strong>Kalyan Main Bazar</strong>, All rights reserved.
+                                             <b>NOTICE:</b> VIEWING THIS WEBSITE IS ON YOUR OWN RISK. ALL THE INFORMATION SHOWN ON WEBSITE IS BASED ON NUMEROLOGY AND ASTROLOGY FOR INFORMATION PURPOSES. <br>
+                                             WE ARE NOT ASSOCIATED WITH ANY ILLEGAL MATKA BUSINESS OR GAMBLERS. WE WARN YOU THAT MATKA GAMBLING IN YOUR COUNTRY MAY BE BANNED OR ILLEGAL.<br> 
+                                            WE ARE NOT RESPONSIBLE FOR ANY ISSUE OR SCAM. WE RESPECT ALL COUNTRY RULES/LAWS. IF YOU NOT AGREE WITH OUR SITE NOTICE. PLEASE QUIT OUR SITE RIGHT NOW.     
+                                                <!-- &nbsp;<b>JodiBazar,</b>&nbsp; All rights reserved. -->
                                              </span>
                                           </td>
                                        </tr>
